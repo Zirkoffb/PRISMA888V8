@@ -38,7 +38,7 @@ export default function CandidatesList() {
     return (
       <div className="space-y-6">
         <div className="flex justify-between items-center">
-          <h1 className="text-3xl font-bold">Candidates</h1>
+          <h1 className="text-3xl font-bold">Candidatos</h1>
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[...Array(6)].map((_, i) => (
@@ -63,11 +63,11 @@ export default function CandidatesList() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold">Candidates</h1>
+        <h1 className="text-3xl font-bold">Candidatos</h1>
         <Link to="/candidates/new">
           <Button>
             <Plus className="mr-2 h-4 w-4" />
-            Add Candidate
+            Adicionar Candidato
           </Button>
         </Link>
       </div>
@@ -82,26 +82,26 @@ export default function CandidatesList() {
                   <CardDescription>{candidate.position}</CardDescription>
                 </div>
                 <Badge variant={candidate.isActive ? "default" : "secondary"}>
-                  {candidate.isActive ? "Active" : "Inactive"}
+                  {candidate.isActive ? "Ativo" : "Inativo"}
                 </Badge>
               </div>
             </CardHeader>
             <CardContent>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Campaign:</span>
+                  <span className="text-muted-foreground">Campanha:</span>
                   <span>{candidate.name}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Party:</span>
-                  <span>{candidate.party || 'Independent'}</span>
+                  <span className="text-muted-foreground">Partido:</span>
+                  <span>{candidate.party || 'Independente'}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">City:</span>
+                  <span className="text-muted-foreground">Cidade:</span>
                   <span>{candidate.city}, {candidate.state}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Election:</span>
+                  <span className="text-muted-foreground">Eleição:</span>
                   <span>{candidate.electionYear}</span>
                 </div>
               </div>
@@ -127,11 +127,11 @@ export default function CandidatesList() {
 
       {candidates.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-muted-foreground mb-4">No candidates yet</p>
+          <p className="text-muted-foreground mb-4">Nenhum candidato ainda</p>
           <Link to="/candidates/new">
             <Button>
               <Plus className="mr-2 h-4 w-4" />
-              Add your first candidate
+              Adicionar primeiro candidato
             </Button>
           </Link>
         </div>

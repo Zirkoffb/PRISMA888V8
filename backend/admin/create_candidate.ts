@@ -11,6 +11,12 @@ export interface CreateCandidateRequest {
   electionYear: number;
   city: string;
   state: string;
+  assigned_agent_id?: number;
+  government_plan?: {
+    filename: string;
+    content: string;
+    strategic_axes?: any;
+  };
 }
 
 export interface CreateCandidateResponse {
@@ -38,11 +44,21 @@ export const createCandidate = api<CreateCandidateRequest, CreateCandidateRespon
     }
 
     const tenant = await db.queryRow<{ id: number }>`
-      INSERT INTO tenants (subdomain, name, candidate_name, position, party, election_year, city, state)
+      INSERT INTO tenants (subdomain, name, candidate_name, position, party, election_year, city, state, assigned_agent_id)
       VALUES (${req.subdomain}, ${req.name}, ${req.candidateName}, ${req.position}, 
-              ${req.party || null}, ${req.electionYear}, ${req.city}, ${req.state})
+              ${req.party || null}, ${req.electionYear}, ${req.city}, ${req.state}, ${req.assigned_agent_id || null})
       RETURNING id
     `;
+
+    // Process government plan if provided
+    if (req.government_plan) {
+      await db.query`
+        INSERT INTO government_plans (tenant_id, filename, file_path, strategic_axes)
+        VALUES (${tenant!.id}, ${req.government_plan.filename}, 
+                ${`/plans/${tenant!.id}/${req.government_plan.filename}`}, 
+                ${JSON.stringify(req.government_plan.strategic_axes || {})})
+      `;
+    }
 
     return {
       id: tenant!.id,

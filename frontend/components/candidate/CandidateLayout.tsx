@@ -20,11 +20,11 @@ export default function CandidateLayout({ children }: CandidateLayoutProps) {
   const { logout } = useAuth();
 
   const navigation = [
-    { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-    { name: 'Electoral Map', href: '/map', icon: MapIcon },
-    { name: 'Tasks', href: '/tasks', icon: CheckSquare },
-    { name: 'Vault', href: '/vault', icon: FolderOpen },
-    { name: 'Data Import', href: '/data', icon: Upload },
+    { name: 'Painel', href: '/dashboard', icon: LayoutDashboard },
+    { name: 'Mapa Eleitoral', href: '/map', icon: MapIcon },
+    { name: 'Insights & Tarefas', href: '/tasks', icon: CheckSquare },
+    { name: 'Repositório', href: '/vault', icon: FolderOpen },
+    { name: 'Importar Dados', href: '/data', icon: Upload },
   ];
 
   return (
@@ -33,8 +33,8 @@ export default function CandidateLayout({ children }: CandidateLayoutProps) {
         {/* Sidebar */}
         <div className="w-64 bg-card border-r border-border">
           <div className="p-6">
-            <h1 className="text-2xl font-bold text-primary">PRISMA888</h1>
-            <p className="text-sm text-muted-foreground">Prisma Noir</p>
+            <h1 className="text-2xl font-bold text-primary">PRISMA 360</h1>
+            <p className="text-sm text-muted-foreground">Inteligência Eleitoral</p>
           </div>
           
           <nav className="px-4 space-y-2">
@@ -63,7 +63,7 @@ export default function CandidateLayout({ children }: CandidateLayoutProps) {
           <div className="absolute bottom-4 left-4 right-4">
             <Button variant="ghost" onClick={logout} className="w-full justify-start">
               <LogOut className="mr-3 h-4 w-4" />
-              Sign out
+              Sair
             </Button>
           </div>
         </div>

@@ -13,9 +13,9 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
   const { logout } = useAuth();
 
   const navigation = [
-    { name: 'Candidates', href: '/candidates', icon: Users },
-    { name: 'AI Agents', href: '/agents', icon: Bot },
-    { name: 'Settings', href: '/settings', icon: Settings },
+    { name: 'Candidatos', href: '/candidates', icon: Users },
+    { name: 'Agentes de IA', href: '/agents', icon: Bot },
+    { name: 'Configurações', href: '/settings', icon: Settings },
   ];
 
   return (
@@ -24,8 +24,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         {/* Sidebar */}
         <div className="w-64 bg-card border-r border-border">
           <div className="p-6">
-            <h1 className="text-2xl font-bold text-primary">PRISMA888</h1>
-            <p className="text-sm text-muted-foreground">Admin Dashboard</p>
+            <h1 className="text-2xl font-bold text-primary">PRISMA 360</h1>
+            <p className="text-sm text-muted-foreground">Painel Administrativo</p>
           </div>
           
           <nav className="px-4 space-y-2">
@@ -54,7 +54,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
           <div className="absolute bottom-4 left-4 right-4">
             <Button variant="ghost" onClick={logout} className="w-full justify-start">
               <LogOut className="mr-3 h-4 w-4" />
-              Sign out
+              Sair
             </Button>
           </div>
         </div>
